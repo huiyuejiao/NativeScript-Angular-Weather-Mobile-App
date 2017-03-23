@@ -1,0 +1,59 @@
+<ActionBar title="Today's Weather" class="header"></ActionBar>
+<StackLayout>
+  <ScrollView>
+    <ActivityIndicator busy="{{ is_loading }}" visibility="{{ is_loading ? 'visible' : 'collapsed' }}"></ActivityIndicator>
+    <StackLayout visibility="{{ !is_loading ? 'visible' : 'collapsed' }}">
+        <Label text="{{ icon }}" class="icon"></Label>
+        <Label text="{{ temperature }}" class="temperature" ></Label>
+        <Label text="{{ weather }}" class="weather" textWrap="true"></Label>
+        <Label text="{{ place }}" class="place" textWrap="true"></Label>
+
+   
+    <GridLayout columns="*,*" rows="auto,auto,auto,auto,auto,auto,auto" cssClass="details">
+ 
+        <GridLayout columns="30,auto" rows="auto" row="0" col="0">
+            <Label text="{{ wind_icon }}" class="small-icon" row="0" col="0" ></Label>
+            <Label text="Wind" textWrap="true" row="0" col="1" class="label" ></Label>
+        </GridLayout>
+        <Label text="{{ wind }}" textWrap="true" row="0" col="1" ></Label>
+        
+        <GridLayout columns="30,auto" rows="auto" row="1" col="0">
+            <Label text="{{ cloud_icon }}" class="small-icon" row="0" col="0" ></Label>
+            <Label text="Cloudiness" textWrap="true" row="1" col="1" class="label" ></Label>
+        </GridLayout>
+        <Label text="{{ clouds }}" textWrap="true" row="1" col="1" ></Label>
+        <GridLayout columns="30,auto" rows="auto" row="2" col="0">
+            <Label text="{{ pressure_icon }}" class="small-icon" row="0" col="0" ></Label>
+            <Label text="Pressure" textWrap="true" row="2" col="1" class="label" ></Label>
+        </GridLayout>
+        <Label text="{{ pressure }}" textWrap="true" row="2" col="1" ></Label>
+        
+        <GridLayout columns="30,auto" rows="auto" row="3" col="0">
+            <Label text="{{ humidity_icon }}" class="small-icon" row="0" col="0" ></Label>
+            <Label text="Humidity" textWrap="true" row="3" col="1" class="label" ></Label>
+        </GridLayout>
+        <Label text="{{ humidity }}" textWrap="true" row="3" col="1" ></Label>
+        <GridLayout columns="30,auto" rows="auto" row="4" col="0">
+            <Label text="{{ rain_icon }}" class="small-icon" row="0" col="0" ></Label>
+            <Label text="Rain" textWrap="true" row="4" col="1" class="label" ></Label>
+        </GridLayout>
+        <Label text="{{ rain }}" textWrap="true" row="4" col="1" ></Label>
+        
+        <GridLayout columns="30,auto" rows="auto" row="5" col="0">
+            <Label text="{{ sunrise_icon }}" class="small-icon" row="0" col="0" ></Label>
+            <Label text="Sunrise" textWrap="true" row="5" col="1" class="label" ></Label>
+        </GridLayout>
+        <Label text="{{ sunrise }}" textWrap="true" row="5" col="1" ></Label>
+        
+        <GridLayout columns="30,auto" rows="auto" row="6" col="0">
+            <Label text="{{ sunset_icon }}" class="small-icon" row="0" col="0" ></Label>
+            <Label text="Sunset" textWrap="true" row="6" col="1" class="label" ></Label>
+        </GridLayout>
+        <Label text="{{ sunset }}" textWrap="true" row="6" col="1" ></Label>
+    </GridLayout>
+            <Button text="5 day Forecast" (tap)="goToForecastPage()"></Button>
+     </StackLayout>
+
+
+  </ScrollView>
+</StackLayout>

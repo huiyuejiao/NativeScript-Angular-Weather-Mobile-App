@@ -1,0 +1,43 @@
+<StackLayout class="parent_stack">
+  <ScrollView >
+      <ActivityIndicator busy="{{ is_loading }}" visibility="{{ is_loading ? 'visible' : 'collapsed' }}"></ActivityIndicator>
+    <StackLayout visibility="{{ !is_loading ? 'visible' : 'collapsed' }}" class="inner_stack">
+
+  <ListView [items]="forecast" class="small-spacing" >
+    <template let-item="item">
+       <GridLayout class="item" columns="*,*" rows="auto" >
+            <StackLayout class="day-weather" row="0" col="0">
+                  <Label text="{{ item.day }}" class="date" ></Label>
+                  <Label text="{{ item.icon }}" class="icon" ></Label>
+                  <Label text="{{ item.description }}" textWrap="true" ></Label>
+            </StackLayout>
+            <StackLayout class="day-weather" row="0" col="1">
+                 <GridLayout columns="30,auto,auto" rows="auto" row="0" col="0">
+                    <Label text="{{ temperature_icon }}" class="small-icon" row="0" col="0" ></Label>
+                    <Label text="{{ item.temperature.day }}" class="temp day-temp" row="0" col="1" ></Label>
+                    <Label text="{{ item.temperature.night }}" class="temp night-temp" row="0" col="2" ></Label>
+                  </GridLayout>
+
+                  <GridLayout columns="30,auto" rows="auto" row="1" col="0">
+                    <Label text="{{ wind_icon }}" class="small-icon" row="0" col="0" ></Label>
+                    <Label text="{{ item.wind }}" row="0" col="1" ></Label>
+                  </GridLayout>
+
+                  <GridLayout columns="30,auto" rows="auto" row="2" col="0">
+                    <Label text="{{ cloud_icon }}" class="small-icon" row="0" col="0" ></Label>
+                    <Label text="{{ item.clouds }}" row="0" col="1" ></Label>
+                  </GridLayout>
+
+                  <GridLayout columns="30,auto" rows="auto" row="3" col="0">
+                    <Label text="{{ pressure_icon }}" class="small-icon" row="0" col="0" ></Label>
+                    <Label text="{{ item.pressure }}" row="0" col="1" ></Label>
+                  </GridLayout>
+            </StackLayout>
+       </GridLayout>
+    </template>
+  </ListView>
+
+
+</StackLayout>
+  </ScrollView>
+</StackLayout>

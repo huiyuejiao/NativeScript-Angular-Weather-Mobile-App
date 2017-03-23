@@ -1,0 +1,22 @@
+.header {
+  background-color: #333;
+  color: #fff;
+}
+
+.day {
+  background-color: #f48024;
+  color: #fff;
+}
+
+.night {
+  background-color: #924da3;
+  color: #fff;
+}
+
+.fa {
+  font-family: FontAwesome, fontawesome-webfont;
+}
+.ion {
+  font-family: Ionicons, ionicons;
+  font-size:40;
+}
