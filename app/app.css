@@ -4,13 +4,20 @@
 }
 
 .day {
-  background-color: #f48024;
+  background-color:lightblue;
   color: #fff;
+  background-image : url("res://bg_sunny.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.7;
 }
 
 .night {
-  background-color: #924da3;
+  background-color: lightslategray;
+  opacity: 0.7;
   color: #fff;
+  background-image : url("res://bg_sunny_night");
 }
 
 .fa {
@@ -20,3 +27,9 @@
   font-family: Ionicons, ionicons;
   font-size:40;
 }
+Page {
+  margin-top: -20;
+}
+/*.add-bar{
+  margin-top: 20;
+}*/

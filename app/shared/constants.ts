@@ -2,7 +2,8 @@ export const WEATHER_URL = 'http://api.openweathermap.org/data/2.5/';
 export const WEATHER_APIKEY = '0f8c7d27cbe2b706f480c1e1512c7c0b';
 export const CURRENT_WEATHER_PATH = 'weather';
 export const WEATHER_FORECAST_PATH = 'forecast/daily';
- 
+export const GOOGLE_MAP_API_PATH = 'https://maps.googleapis.com/maps/api/timezone/json?location=';
+export const GOOGLE_MAP_API_KEY = 'AIzaSyDfaaZTExAYCEXBf7LTIEy2TbSpSB0ckvA';
 export const WEATHER_ICONS = {
   day: {
     'clear': 0xf00d,
@@ -11,7 +12,8 @@ export const WEATHER_ICONS = {
     'rain': 0xf008,
     'thunderstorm': 0x010,
     'snow': 0xf00a,
-    'mist': 0xf0b6
+    'mist': 0xf0b6,
+    'haze':0xf0b6
   },
   night: {
     'clear': 0xf02e,
@@ -20,7 +22,8 @@ export const WEATHER_ICONS = {
     'rain': 0xf028,
     'thunderstorm': 0xf02d,
     'snow': 0xf02a,
-    'mist': 0xf04a
+    'mist': 0xf04a,
+    'haze':0xf0b6
   },
   neutral: {
     'temperature': 0xf055,

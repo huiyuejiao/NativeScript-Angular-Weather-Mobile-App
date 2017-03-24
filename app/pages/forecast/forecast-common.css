@@ -1,13 +1,8 @@
 .parent_stack{
-  background-color: palevioletred
-}
-.inner_stack{
-  background-color: cadetblue;
-  height:700;
+  margin-top: 20;
 }
 ListView{
-  /*background-color: cornflowerblue;*/
-  height:700;
+  height:2500;
 }
 .temperature {
   font-size: 40px;
@@ -42,7 +37,9 @@ ListView{
   padding: 30px;
   font-size: 18px;
 }
-
+.parent_stack{
+  margin-top: 20px;
+}
 .label {
   font-weight: bold;
 }
@@ -57,13 +54,23 @@ Button {
 Page {
   font-size: 15px;
 }
-
+ListView{
+  background-image : url("res://sunny_day") center none;
+}
 .item {
   padding: 20px 10px;
-    background-color: #f48024;
+  background-color: lightslategray;
+  background-image : url("res://sunny_day") center none;
   color: #fff;
 }
-
+.sunnytime{
+  opacity: 0.8;
+  background-image : url("res://sunny_day") center none;
+}
+.raintime{
+  opacity: 0.9;
+  background-image: url("res://rain_drops") center none;
+}
 .day-weather {
   text-align: center;
 }

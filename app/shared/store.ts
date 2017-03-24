@@ -1,0 +1,1 @@
+export var weather_init_flag = true;

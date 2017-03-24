@@ -1,13 +1,15 @@
+<ActionBar title="5 Day's Weather" class="header add-bar " >
+</ActionBar>
 <StackLayout class="parent_stack">
-  <ScrollView >
+  <!--<ScrollView >-->
       <ActivityIndicator busy="{{ is_loading }}" visibility="{{ is_loading ? 'visible' : 'collapsed' }}"></ActivityIndicator>
-    <StackLayout visibility="{{ !is_loading ? 'visible' : 'collapsed' }}" class="inner_stack">
+    <!--<StackLayout visibility="{{ !is_loading ? 'visible' : 'collapsed' }}" class="inner_stack">-->
 
-  <ListView [items]="forecast" class="small-spacing" >
+  <ListView #listView [items]="forecast" class="small-spacing" visibility="{{ !is_loading ? 'visible' : 'collapsed' }}">
     <template let-item="item">
-       <GridLayout class="item" columns="*,*" rows="auto" >
+       <GridLayout class="item" columns="*,*" rows="auto" [class.sunnytime]="item.weather" [class.raintime]="!item.weather" >
             <StackLayout class="day-weather" row="0" col="0">
-                  <Label text="{{ item.day }}" class="date" ></Label>
+                  <Label text="{{ item.weather }}" class="date" ></Label>
                   <Label text="{{ item.icon }}" class="icon" ></Label>
                   <Label text="{{ item.description }}" textWrap="true" ></Label>
             </StackLayout>
@@ -38,6 +40,6 @@
   </ListView>
 
 
-</StackLayout>
-  </ScrollView>
+<!--</StackLayout>-->
+  <!--</ScrollView>-->
 </StackLayout>

@@ -1,5 +1,7 @@
-<ActionBar title="Today's Weather" class="header"></ActionBar>
-<StackLayout>
+<ActionBar  class="header add-bar " >
+   <ActionItem  icon="res://menu"(tap)="all()" ios.position="right" ></ActionItem>
+</ActionBar>
+<StackLayout class="parent_stack">
   <ScrollView>
     <ActivityIndicator busy="{{ is_loading }}" visibility="{{ is_loading ? 'visible' : 'collapsed' }}"></ActivityIndicator>
     <StackLayout visibility="{{ !is_loading ? 'visible' : 'collapsed' }}">

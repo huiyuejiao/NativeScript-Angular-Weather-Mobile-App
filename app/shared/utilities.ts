@@ -1,5 +1,5 @@
 import constants = require('./constants');
- 
+
 export function degreeToDirection(num) {
   var val= Math.floor((num / 22.5) + .5);
   return constants.WIND_DIRECTIONS[(val % 16)];
@@ -46,13 +46,13 @@ export function describeHumidity(humidity) {
 }
 export function describeTemperature(temp) {
   var celsius = convertKelvinToCelsius(temp);
-  if (celsius >= 0 && celsius < 7) {
+  if ( celsius < 0) {
     return 'very cold';
-  } else if (celsius >= 8 && celsius < 13) {
+  } else if (celsius >= 0 && celsius < 8) {
     return 'cold';
-  } else if (celsius >= 13 && celsius < 18) {
+  } else if (celsius >= 8 && celsius < 15) {
     return 'cool';
-  } else if (celsius >= 18 && celsius < 23) {
+  } else if (celsius >= 15 && celsius < 23) {
     return 'mild';
   } else if (celsius >= 23 && celsius < 28) {
     return 'warm';
@@ -64,10 +64,13 @@ export function describeTemperature(temp) {
 export function convertKelvinToCelsius(celsius) {
   return celsius - 273.15;
 }
-export function getTimeOfDay() {
+export function getTimeOfDay(time?) {
   var hour = (new Date()).getHours();
+  if(time){
+      hour = (new Date(time)).getHours();
+  }
   var time_of_day = 'night';
-  if(hour >= 5 && hour <= 18){
+  if(hour >= 6 && hour <= 18){
     time_of_day = 'day';
   }
   return time_of_day;
@@ -81,4 +84,13 @@ export function getIcons(icon_names) {
     };
   });
   return icons;
+}
+export function getGoogleTimeUrl(lat,lon){
+    var loc =`${lat},${lon}`;
+    console.log(loc)
+    //var loc = '35.731252, 139.730291' // Tokyo expressed as lat,lng tuple
+    var targetDate = new Date() // Current date/time of user computer
+    var timestamp = targetDate.getTime()/1000 + targetDate.getTimezoneOffset() * 60 // Current UTC date/time expressed as seconds since midnight, January 1, 1970 UTC
+    var apicall = 'https://maps.googleapis.com/maps/api/timezone/json?location=' + loc + '&timestamp=' + timestamp + '&key=' + constants.GOOGLE_MAP_API_KEY
+    return apicall;
 }

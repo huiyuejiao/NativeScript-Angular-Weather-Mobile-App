@@ -1,0 +1,41 @@
+.parent_stack{
+  margin-top: 0;
+}
+ListView{
+  height:2500;
+}
+.add-bar {
+  background-color: lightgray;
+  padding: 10 20;
+}
+.small-icon {
+  font-size: 18px;
+  margin-right: 5px;
+  text-align: right;
+}
+Page {
+  font-size: 20px;
+}
+.item_day {
+  padding: 30px 10px;
+  color: #fff;
+}
+.daytime{
+  background-color: lightblue;
+  opacity: 0.8;
+  background-image : url("res://sunny_day") center none;
+  color:black
+}
+.nighttime{
+  /*background-color:lightslategray;*/
+  opacity: 0.9;
+  background-image: url("res://bg_sunny_night") center none;
+}
+.day-weather {
+  text-align: center;
+  vertical-align: center;
+}
+.delete-container{
+  margin-left: 40px;
+  vertical-align: center;
+}

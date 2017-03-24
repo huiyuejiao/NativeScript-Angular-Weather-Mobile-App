@@ -1,0 +1,30 @@
+<StackLayout class="parent_stack">
+  <ActivityIndicator busy="{{ is_loading }}" visibility="{{ is_loading ? 'visible' : 'collapsed' }}"></ActivityIndicator>
+  
+  <GridLayout rows="auto, *">
+      <!--<GridLayout row="0" columns="*, auto" class="add-bar">
+          <TextField #cityTextField hint="Enter a city name"[(ngModel)]="city" col="0"></TextField>
+          <Image src="res://add" col="1" (tap)="add()"></Image>
+      </GridLayout>-->
+      <SearchBar row="0"class="add-bar" row="0" #sb hint="Search for city press enter" (clear)="onClear()" [text]="searchPhrase" (submit)="onSubmit(sb.text)"></SearchBar>
+      <ListView [items]="cityWeatherList"row="1" class="small-spacing" visibility="{{ !is_loading ? 'visible' : 'collapsed' }}">
+        <template let-item="item">
+          <GridLayout class="item_day" [class.daytime]="!item.night" [class.nighttime]="item.night" columns="*,*,auto" rows="auto" >
+                <StackLayout class="day-weather" row="0" col="0" (tap)="detail(item.city)">
+                      <Label text="{{ item.city }}" ></Label>
+                </StackLayout>
+                <StackLayout class="day-weather" row="0" col="1"> 
+                      <GridLayout columns="*,auto" rows="*,auto" row="0" col="0" (tap)="detail(item.city)">
+                          <Label row="0" col="0" text="{{ item.time}}" class="small-icon"></Label>
+                          <Label row="1" col="0"text="{{ item.temperature}}" class="small-icon"></Label>
+                     </GridLayout>   
+                </StackLayout>
+                <StackLayout col="2" class="delete-container" (tap)="delete(item)">
+                  <Image src="res://delete"></Image>
+                </StackLayout>
+          </GridLayout>
+        </template>
+      </ListView>
+
+  </GridLayout>
+</StackLayout>
