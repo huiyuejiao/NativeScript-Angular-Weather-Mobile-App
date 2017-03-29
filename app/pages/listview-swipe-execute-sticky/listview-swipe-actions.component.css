@@ -1,0 +1,50 @@
+.listItemStackLayout {
+    background-color: lightgray;
+    padding-left: 5;
+}
+
+.labelName {
+    font-size: 20;
+    margin-bottom: 8;
+    color: red;
+}
+
+.labelTitle {
+    font-size: 14;
+    font-weight: bold;
+    color: navy
+}
+
+.labelText {
+    font-size: 12;
+}
+
+.markViewStackLayout {
+    background-color: blue;
+    padding: 16
+}
+
+.deleteViewStackLayout {
+    background-color: red;
+    padding: 16;
+}
+
+.gridLayoutLayout {
+    background-color:lightcoral;
+}
+
+.markViewStackLayout {
+    background-color: blue;
+    padding-left: 16;
+    padding-right: 16;
+}
+
+.swipetemplateLabel {
+    size: 20;
+}
+
+.deleteViewStackLayout {
+    background-color: red;
+    padding-left: 16;
+    padding-right: 16;
+}

@@ -1,7 +1,31 @@
 .parent_stack{
   margin-top: 20px;
 }
+.drawerContentText {
+    font-size: 13;
+    padding: 10;
+}
+
+.sideStackLayout {
+    background-color: gray;
+}
+
+.sideTitleStackLayout {
+    padding: 10;
+    text-align: center;
+}
+
+.sideLabel {
+    padding: 10;
+}
+
+.sideLightGrayLabel {
+    background-color: lightgray;
+}
+Contact GitHub API Training Shop Blog About
+
 .temperature {
+  margin-top: 20px;
   font-size: 30px;
   font-weight: bold;
   text-align: center;
@@ -18,7 +42,7 @@
 }
 .icon {
   font-family: 'weathericons, Weather Icons';
-  font-size: 100px;
+  font-size: 50px;
   text-align: center;
   margin-top: 20;
 }

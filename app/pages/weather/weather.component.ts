@@ -1,4 +1,3 @@
-import { Component, ElementRef, OnInit, ViewChild  } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { WeatherService } from "../../shared/weather/weather.service";
 import constant = require("../../shared/constants");
@@ -6,7 +5,15 @@ import utilities = require("../../shared/utilities");
 import store = require("../../shared/store");
 import moment = require('moment');
 import { Page } from "ui/page";
+import { Component, ElementRef, ViewChild, Injectable, OnInit, ChangeDetectorRef } from "@angular/core";
+import { View } from "ui/core/view";
+import { RadSideDrawer } from "nativescript-telerik-ui-pro/sidedrawer";
+import { ActionItem } from "ui/action-bar";
+import sideDrawerModule = require('nativescript-telerik-ui-pro/sidedrawer');
+import { Observable } from "data/observable";
+import { RadSideDrawerComponent, SideDrawerType } from "nativescript-telerik-ui-pro/sidedrawer/angular";
 import applicationSettings = require("application-settings");
+import * as tnsOAuthModule from 'nativescript-oauth';
 @Component({
   selector: "my-app",
   templateUrl: "pages/weather/weather.html",
@@ -21,15 +28,24 @@ export class WeatherComponent implements OnInit{
     pressure;humidity;rain;sunrise;sunset;
     humidity_icon;sunrise_icon;sunset_icon;
     pressure_icon;wind_icon;cloud_icon;rain_icon;
-
+    @ViewChild(RadSideDrawerComponent) public drawerComponent: RadSideDrawerComponent;
+    private drawer: SideDrawerType;
     constructor(private route: ActivatedRoute,private router: Router,
-    private weatherService:WeatherService,private page:Page) {
+    private weatherService:WeatherService,private page:Page,
+    private _changeDetectionRef: ChangeDetectorRef) {
 
             this.route.params.subscribe((params) => {
             this.city_name = params["name"];
         });
-
     }
+    ngAfterViewInit() {
+        this.drawer = this.drawerComponent.sideDrawer;
+        this._changeDetectionRef.detectChanges();
+    }
+        public openDrawer() {
+        this.drawer.showDrawer();
+    }
+
     ngOnInit(){
 
         if(this.city_name){
@@ -105,6 +121,17 @@ export class WeatherComponent implements OnInit{
         this.router.navigate(["/forecast",this.city_name_tirmmed]);
     }
 
+goToLinePage(){
+    this.router.navigate(["/line"]);
+}
+    public onTapLogout() {
+        tnsOAuthModule.logout()
+            .then(() => {console.log('logged out');this.router.navigate(['login'])})
+            .catch((er) => {
+                console.error('error logging out');
+                console.dir(er);
+            });
+    }
    all(){
        this.router.navigate(['/list'])
    }

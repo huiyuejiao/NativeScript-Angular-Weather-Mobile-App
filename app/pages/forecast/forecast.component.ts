@@ -17,6 +17,7 @@ export class ForecastComponent implements OnInit{
     city_name;
     is_loading:boolean = true;
     temperature_icon;wind_icon; cloud_icoon; pressure_icon;
+    private categoricalSource;
     constructor(private route:ActivatedRoute,private weatherService:WeatherService,
     private page:Page){
         this.route.params.subscribe((params)=>{
@@ -25,7 +26,6 @@ export class ForecastComponent implements OnInit{
 
     }
     ngOnInit(){
-
         var time_of_day = utilities.getTimeOfDay();
             let cityname = this.city_name.split(" ");
             cityname =  cityname.join("");

@@ -1,8 +1,20 @@
 <ActionBar  class="header add-bar " >
    <ActionItem  icon="res://menu"(tap)="all()" ios.position="right" ></ActionItem>
+    <ActionItem  icon="res://menu"(tap)=openDrawer() ios.position="left" ></ActionItem>
 </ActionBar>
-<StackLayout class="parent_stack">
-  <ScrollView>
+<RadSideDrawer tkExampleTitle tkToggleNavButton>
+    <StackLayout tkDrawerContent class="sideStackLayout">
+        <StackLayout class="sideTitleStackLayout">
+            <Label text="Navigation Menu"></Label>
+        </StackLayout>
+        <StackLayout class="sideStackLayout">
+            <Label text="Current Weather" class="sideLabel sideLightGrayLabel"  [nsRouterLink]="['/weather']"></Label>
+            <Label text="City List" class="sideLabel"  [nsRouterLink]="['/list']"></Label>
+            <Label text="Logout" class="sideLabel"  (tap)="onTapLogout()"></Label>
+        </StackLayout>
+    </StackLayout>
+    <StackLayout tkMainContent class="parent_stack">
+        <ScrollView>
     <ActivityIndicator busy="{{ is_loading }}" visibility="{{ is_loading ? 'visible' : 'collapsed' }}"></ActivityIndicator>
     <StackLayout visibility="{{ !is_loading ? 'visible' : 'collapsed' }}">
         <Label text="{{ icon }}" class="icon"></Label>
@@ -54,8 +66,9 @@
         <Label text="{{ sunset }}" textWrap="true" row="6" col="1" ></Label>
     </GridLayout>
             <Button text="5 day Forecast" (tap)="goToForecastPage()"></Button>
+            <Button text="5 day Forecast Line Chart" (tap)="goToLinePage()"></Button>
      </StackLayout>
-
-
   </ScrollView>
-</StackLayout>
+
+    </StackLayout>
+</RadSideDrawer>

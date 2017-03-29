@@ -1,6 +1,9 @@
 .parent_stack{
   margin-top: 20;
 }
+RadCartesianChart{
+  height:300px
+}
 ListView{
   height:2500;
 }
