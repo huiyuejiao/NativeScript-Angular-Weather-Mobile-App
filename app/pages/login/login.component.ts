@@ -42,13 +42,11 @@ submit() {
   }
 }
  public onTapLogin() {
-        tnsOAuthModule.ensureValidToken()
-            .then((token: string) => {
-                    console.log(token)
-                    console.log('Dialog closed!');
-                    this.router.navigate(["/weather"])
-                
-
+        tnsOAuthModule.login()
+            .then(()=>{
+                console.log('logged in');
+                console.dir("accessToken " + tnsOAuthModule.accessToken());
+                this.router.navigate(['weather'])
             })
             .catch((er) => {
                 console.error('error logging in');

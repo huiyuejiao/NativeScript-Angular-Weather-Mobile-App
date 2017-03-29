@@ -5,7 +5,7 @@ import * as tnsOAuthModule from 'nativescript-oauth';
 var facebookInitOptions: tnsOAuthModule.ITnsOAuthOptionsFacebook = {
     clientId: '1287476194673240',
     clientSecret: '3dfc46b18cbdb5abfdcd23175ff8623e',
-    scope: ['email']
+    scope: ['email','user_friends','public_profile']
 };
 tnsOAuthModule.initFacebook(facebookInitOptions);
 setStatusBarColors();
